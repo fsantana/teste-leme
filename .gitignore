@@ -5,3 +5,6 @@
 /app/runtime/export
 /app/web/assets/*
 /app/web/uploads
+
+/app/tests/_output/*
+/app/tests/_support/_generated

@@ -4,10 +4,11 @@ Subir ambiente através do Docker
 ```
 # Subir container
 docker-compose up -d
-# Acessar o bash do container 
-docker-compose exec -u 1000 app bash  
+# Instalar Dependências
+docker-compose exec -u 1000 app composer install
 # Executar Migration
-./yii migrate
+docker-compose exec -u 1000 app ./yii migrate  
+
 ```
 
 Acessar projeto usando:

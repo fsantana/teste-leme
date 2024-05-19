@@ -42,25 +42,19 @@ $this->params['breadcrumbs'][] = $this->title;
 
 </div>
 <p>
-        <?= Html::a('Enviar nova Imangem', ['novaimagem', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('Enviar novas Imangens', ['novaimagem', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
        
     </p>
 
-<?php
- echo \hoomanMirghasemi\iviewer\IviewerGallery::widget([
-     'selectorId' => 'iviewer-gallery-1',
-     'modalCloseText' => 'close',
- ]);
- ?>
+
  <div id="ivwever-gallery">
     <?php
     foreach($model->pedidosImagens as $pedidoImagem){
 ?>
-     <div class="iviewer-gallery-item-holder">
-         <img 
-              src="<?= ('/'.$pedidoImagem->capa)?>"
-              data-iviewer-src="<?= Url::to($pedidoImagem->imagem, true)?>"
-              class="iviewer-gallery-item" data-target="#iviewer-gallery-modal" data-toggle="modal"/>
+     <div >
+        <a href="<?= Url::to($pedidoImagem->imagem, true)?>"  target="_blank">
+         <img src="<?= ('/'.$pedidoImagem->capa)?>"/>
+    </a>
      </div>
 
 <?php
