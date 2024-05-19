@@ -25,7 +25,7 @@ use yii\bootstrap5\ToggleButtonGroup;
         'language' => 'pt-br',
         'clientOptions' => [
             'changeMonth' => true,
-            'yearRange' => '1996:2024',
+            'maxDate'=> "-1",
             'changeYear' => true
         ],
         'options' => ['class' => 'form-control'],

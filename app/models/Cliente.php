@@ -33,11 +33,11 @@ class Cliente extends \yii\db\ActiveRecord
     {
         return [
             [['nome', 'cpf', 'data_nasc'], 'required'],
-            [['data_nasc'], 'date', 'format' => 'yyyy-MM-dd'],
             [['ativo'], 'integer'],
             [['nome'], 'string', 'max' => 255],
             [['cpf', 'telefone'], 'string', 'max' => 15],
             [['cpf'],'validateCpf'],
+            [['data_nasc'],'date', 'format' => 'yyyy-MM-dd','max'=>date('Y-m-d')],
         ];
     }
 
