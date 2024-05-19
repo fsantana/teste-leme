@@ -1,0 +1,43 @@
+services:
+  app:
+    image: yiisoftware/yii2-php:8.1-fpm-nginx
+    networks:
+      - teste-leme
+    ports:
+      - 443:443
+      - 80:80
+    volumes:
+      - ./app:/app
+    depends_on:
+      - db
+    environment:
+      # DATABASE
+      - DATABASE_HOST=db
+      - DATABASE_PORT=3306
+      - DATABASE_DBNAME=teste_leme_database
+      - DATABASE_USERNAME=admin
+      - DATABASE_PASSWORD=password
+      - YII_ENV=prod
+  db:
+    image: mysql:5.7
+    networks:
+      - teste-leme
+    ports:
+      - 3306:3306
+    volumes:
+      - ./config-server/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+      - dbdata:/var/lib/mysql
+    environment:
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: password
+      MYSQL_DATABASE: teste_leme_database
+      MYSQL_ROOT_PASSWORD: rootpass
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+networks:
+  teste-leme:
+    driver: bridge
+volumes:
+  dbdata:
+    driver: local
+
+
