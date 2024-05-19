@@ -1,0 +1,7 @@
+/app/vendor
+/app/runtime/debug
+/app/runtime/logs
+/app/runtime/cache
+/app/runtime/export
+/app/web/assets/*
+/app/web/uploads
